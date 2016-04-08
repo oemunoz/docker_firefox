@@ -29,7 +29,7 @@ docker run --name ffox_acounts_test1 \
       -v $HOME/.Xauthority:/home/developer/.Xauthority  \
       -v $HOME/Downloads:/home/developer/Downloads \
       --net=host \
-      oems/firefox:latest
+      oems/firefox:latest 
 ```
 
 ## Usage:
