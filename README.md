@@ -29,7 +29,7 @@ docker run --name ffox_acounts_test1 \
       -v $HOME/.Xauthority:/home/developer/.Xauthority  \
       -v $HOME/Downloads:/home/developer/Downloads \
       --net=host \
-      oems/firefox:latest 
+      oems/firefox:latest
 ```
 
 ## Usage:
@@ -40,3 +40,4 @@ firefox.sh www.google.com
 ## Licence
 
 No guaranty at all.
+A Blog with the complete information of this build. http://fabiorehm.com/blog/2014/09/11/running-gui-apps-with-docker/
