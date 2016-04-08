@@ -1,31 +1,42 @@
-# Project Name
+# Basic Firefox Docker
 
-TODO: Write a project description
+Running a Firefox docker on a local DISPLAY. This is a useful when you need to keep your browser options on separated container.
 
-## Installation
+## Tested options:
 
-TODO: Describe the installation process
+1. Diferent proxy options than local Firefox install.
+2. Keep your alternatives accounts settings, when you use "permanent" docker container beside the "--rm" option. (use "docker [stop|start]" for use your instance settings.)
 
-## Usage
+## Get this image
 
-TODO: Write usage instructions
+```bash
+docker pull oems/firefox:latest
+```
 
-## Contributing
+### 1. Diferent proxy options
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
+This must work out of the box, the "--no-remote" ensure that your container Firefox is not in relation with your local Firefox instance.
 
-## History
+### 2. Alternatives accounts settings
 
-TODO: Write history
+Replace the "-ti --rm" option with "--name" on the firefox.sh script, for example:
 
-## Credits
+```bash
+docker run --name ffox_acounts_test1 \
+      -e DISPLAY=$DISPLAY \
+      -e URL=$* \
+      -v /tmp/.X11-unix:/tmp/.X11-unix \
+      -v $HOME/.Xauthority:/home/developer/.Xauthority  \
+      -v $HOME/Downloads:/home/developer/Downloads \
+      --net=host \
+      oems/firefox:latest
+```
 
-TODO: Write credits
+## Usage:
 
-## License
+```bash
+firefox.sh www.google.com
+```
+## Licence
 
-TODO: Write license
+No guaranty at all.
